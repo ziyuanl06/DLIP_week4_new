@@ -45,9 +45,10 @@ print(tokens)
 # Your code here:
 # -----------------------------------------------
 def tokenize(text: str) -> list:
+    tokens_raw = text.split()
     tokens = [
-        word.strip(".,!?;:'\"()[]{}").lower()
-        for word in text.split()
+        ''.join(char for char in word if char.isalnum()).lower()
+        for word in tokens_raw
     ]
     return [word for word in tokens if word]
 
